@@ -4,10 +4,10 @@ import { useEffect, useRef, useState, type ReactNode, type CSSProperties, Fragme
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Fervor — Creative Studio" },
-      { name: "description", content: "Fervor — a creative studio shaping bold visions into power for ambitious founders." },
-      { property: "og:title", content: "Fervor — Creative Studio" },
-      { property: "og:description", content: "Fervor — a creative studio shaping bold visions into power for ambitious founders." },
+      { title: "Matheus Coelho — Consórcio Imobiliário" },
+      { name: "description", content: "Proposta de Growth com Meta Ads para Matheus Coelho Consórcio — Curitiba, PR." },
+      { property: "og:title", content: "Matheus Coelho — Consórcio Imobiliário" },
+      { property: "og:description", content: "Proposta de Growth com Meta Ads para Matheus Coelho Consórcio — Curitiba, PR." },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -18,12 +18,12 @@ export const Route = createFileRoute("/")({
   component: App,
 });
 
-const ACCENT = "#5E0ED7";
+const ACCENT = "#1A56DB";
 const NAV_LINKS = [
-  { label: "Story", href: "#story" },
-  { label: "Expertise", href: "#expertise" },
-  { label: "Studios", href: "#studios" },
-  { label: "Feedback", href: "#feedback" },
+  { label: "Diagnóstico", href: "#diagnostico" },
+  { label: "Plano", href: "#plano" },
+  { label: "Criativos", href: "#criativos" },
+  { label: "Cronograma", href: "#cronograma" },
 ];
 
 /* Icons */
@@ -121,7 +121,7 @@ function ClipImage({ children, delay = 0, className = "" }: { children: ReactNod
 function Logo() {
   return (
     <div className="w-8 h-8 rounded-full border-2 flex items-center justify-center shrink-0" style={{ borderColor: ACCENT }}>
-      <div className="w-[10px] h-[10px] rounded-full" style={{ backgroundColor: ACCENT }} />
+      <span className="text-[9px] font-bold tracking-tight" style={{ color: ACCENT }}>MC</span>
     </div>
   );
 }
@@ -176,7 +176,7 @@ function Nav() {
         <div className="flex items-center justify-between px-5 sm:px-8 md:px-12 py-4 md:py-5">
           <a href="#top" className="anim-fadeDown flex items-center gap-3" style={{ animationDelay: "0s" }}>
             <Logo />
-            <span className="text-sm font-semibold tracking-widest uppercase">Fervor</span>
+            <span className="text-sm font-semibold tracking-widest uppercase">Matheus Coelho</span>
           </a>
 
           <div className="hidden md:flex items-center gap-8 lg:gap-10">
@@ -204,11 +204,11 @@ function Nav() {
           </button>
 
           <a
-            href="#contact"
+            href="#contato"
             className="anim-fadeDown hidden md:flex items-center gap-1.5 text-sm font-semibold tracking-widest uppercase hover:opacity-70 transition-opacity"
             style={{ color: ACCENT, animationDelay: "0.5s" }}
           >
-            Work With Us
+            Vamos Conversar
             <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
           </a>
         </div>
@@ -219,7 +219,7 @@ function Nav() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Logo />
-              <span className="text-sm font-semibold tracking-widest uppercase">Fervor</span>
+              <span className="text-sm font-semibold tracking-widest uppercase">Matheus Coelho</span>
             </div>
             <button
               onClick={() => setMenuOpen(false)}
@@ -245,12 +245,12 @@ function Nav() {
           </div>
 
           <a
-            href="#contact"
+            href="#contato"
             onClick={() => setMenuOpen(false)}
             className="mt-auto flex items-center gap-2 text-xl font-semibold uppercase tracking-wide"
             style={{ color: ACCENT }}
           >
-            Work With Us
+            Vamos Conversar
             <ArrowUpRight className="w-6 h-6" strokeWidth={2.5} />
           </a>
         </div>
@@ -262,25 +262,17 @@ function Nav() {
 /* Hero */
 function Hero() {
   return (
-    <section id="top" className="relative w-full overflow-hidden" style={{ minHeight: "clamp(700px, 100vh, 1000px)" }}>
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay loop muted playsInline preload="auto"
-        width={1920}
-        height={1080}
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260517_222138_3e3205be-3364-417b-a64a-bfe087acbec4.mp4"
-      />
-
-      <div className="relative z-10 flex flex-col text-black pt-20 md:pt-24" style={{ minHeight: "clamp(700px, 100vh, 1000px)" }}>
+    <section id="top" className="relative w-full overflow-hidden" style={{ minHeight: "clamp(700px, 100vh, 1000px)", background: "linear-gradient(135deg, #0a0a1a 0%, #000 100%)" }}>
+      <div className="relative z-10 flex flex-col text-white pt-20 md:pt-24" style={{ minHeight: "clamp(700px, 100vh, 1000px)" }}>
         <div className="flex-1 flex items-center justify-end px-5 sm:px-8 md:px-12 py-8 md:py-0">
           <div className="flex flex-row items-start gap-5 sm:gap-8 md:gap-10">
-            {[{ v: "300", l: "CRAFTED\nBRANDS" }, { v: "200", l: "DIGITAL\nPRODUCTS" }, { v: "100", l: "VENTURES\nFUNDED" }].map((s, idx) => (
+            {[{ v: "130", l: "MILHÕES EM\nCRÉDITO" }, { v: "3", l: "CAMPANHAS\nPLANEJADAS" }, { v: "4", l: "SEMANAS DE\nEXECUÇÃO" }].map((s, idx) => (
               <div key={s.v} className="anim-fadeUp text-right" style={{ animationDelay: (idx + 2) * 0.12 + "s" }}>
-                <div className="font-semibold leading-none" style={{ fontSize: "clamp(1.5rem, 5vw, 3.5rem)" }}>
+                <div className="font-semibold leading-none text-white" style={{ fontSize: "clamp(1.5rem, 5vw, 3.5rem)" }}>
                   <span style={{ color: ACCENT, fontSize: "0.5em" }}>+</span>
-                  <CountUp to={Number(s.v)} immediate className="text-black" />
+                  <CountUp to={Number(s.v)} immediate className="text-white" />
                 </div>
-                <div className="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-black whitespace-pre-line leading-tight mt-1">{s.l}</div>
+                <div className="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-white/60 whitespace-pre-line leading-tight mt-1">{s.l}</div>
               </div>
             ))}
           </div>
@@ -288,25 +280,25 @@ function Hero() {
 
         <div className="flex flex-col gap-6 md:gap-12 px-5 sm:px-8 md:px-12 pb-8 md:pb-12">
           <div className="flex flex-row items-center justify-between gap-4">
-            <p className="anim-fadeUp text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase max-w-[130px] sm:max-w-[160px] md:max-w-xs" style={{ animationDelay: "0.6s" }}>
-              Shaping Bold<br />Visions Into Power<br />For Your Tribe
+            <p className="anim-fadeUp text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase max-w-[130px] sm:max-w-[160px] md:max-w-xs text-white/70" style={{ animationDelay: "0.6s" }}>
+              Sem Juros.<br />Sem Enrolação.<br />Com Estratégia.
             </p>
-            <a href="#contact" className="anim-fadeUp flex items-center gap-1 font-semibold uppercase tracking-wide whitespace-nowrap text-base sm:text-xl md:text-2xl hover:opacity-70 transition-opacity" style={{ color: ACCENT, animationDelay: "0.72s" }}>
-              Work With Us
+            <a href="#diagnostico" className="anim-fadeUp flex items-center gap-1 font-semibold uppercase tracking-wide whitespace-nowrap text-base sm:text-xl md:text-2xl hover:opacity-70 transition-opacity" style={{ color: ACCENT, animationDelay: "0.72s" }}>
+              Ver Proposta
               <ArrowUpRight className="w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]" strokeWidth={2.5} />
             </a>
           </div>
 
           <div className="flex flex-row items-end justify-between gap-3 sm:gap-4">
             <div className="anim-fadeUp w-[120px] sm:w-[180px] md:w-[280px] shrink-0" style={{ animationDelay: "0.84s" }}>
-              <p className="text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-left md:text-right">
-                Creative Studios Built Around Elevating Your Vision Into Striking Reality
+              <p className="text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-white/50">
+                Especialista em Consórcio Imobiliário em Curitiba, PR
               </p>
             </div>
             <div className="text-right">
-              {["Fearless", "Vision", "Delivered"].map((word, idx) => (
+              {["Especialista", "em Consórcio", "Imobiliário"].map((word, idx) => (
                 <div key={word} className="overflow-hidden">
-                  <span className="anim-word font-semibold uppercase text-black" style={{ fontSize: "clamp(2rem, 9vw, 9rem)", lineHeight: 0.88, animationDelay: 0.4 + idx * 0.14 + "s" }}>{word}</span>
+                  <span className="anim-word font-semibold uppercase text-white" style={{ fontSize: "clamp(2rem, 9vw, 9rem)", lineHeight: 0.88, animationDelay: 0.4 + idx * 0.14 + "s" }}>{word}</span>
                 </div>
               ))}
             </div>
@@ -319,7 +311,7 @@ function Hero() {
 
 /* Marquee */
 function Marquee() {
-  const items = ["Brand Identity", "Digital Products", "Motion & Film", "Strategy", "Art Direction", "Web Development"];
+  const items = ["Consórcio Imobiliário", "Meta Ads", "Geração de Leads", "Tráfego Pago", "Instagram Growth", "Curitiba, PR", "Sem Juros"];
   const Run = () => (
     <div className="flex items-center shrink-0">
       {items.map((it) => (
@@ -340,55 +332,27 @@ function Marquee() {
   );
 }
 
-/* Story */
-function Story() {
-  return (
-    <section id="story" className="px-5 sm:px-8 md:px-12 py-24 md:py-40 max-w-[1600px] mx-auto">
-      <SectionLabel index="01" title="Story" />
-      <div className="mt-10 md:mt-16">
-        <ClipReveal
-          lines={["We are a creative", "studio for founders", "who refuse to blend in."]}
-          className="font-semibold uppercase text-black"
-          style={{ fontSize: "clamp(1.75rem, 6vw, 5.5rem)", lineHeight: 0.95 }}
-          stagger={0.12}
-        />
-      </div>
-      <div className="mt-12 md:mt-20 flex flex-col md:flex-row md:justify-end gap-8">
-        <FadeUp className="md:max-w-md" delay={0.1}>
-          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase leading-relaxed text-black/70">
-            Founded on a single belief — that the boldest ideas deserve the sharpest craft. We partner with ambitious teams to turn raw vision into brands, products and films the world cannot ignore.
-          </p>
-          <a href="#expertise" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold tracking-widest uppercase hover:opacity-70 transition-opacity" style={{ color: ACCENT }}>
-            See What We Do
-            <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
-          </a>
-        </FadeUp>
-      </div>
-    </section>
-  );
-}
-
-/* Expertise */
-function Expertise() {
-  const services = [
-    { n: "01", t: "Brand Identity", d: "Logos, systems, guidelines — and the rules worth breaking." },
-    { n: "02", t: "Digital Product", d: "Apps and platforms designed end to end." },
-    { n: "03", t: "Motion & Film", d: "Title sequences, launch films, social motion." },
-    { n: "04", t: "Strategy", d: "Positioning, naming and the narrative beneath it all." },
-    { n: "05", t: "Web Development", d: "Editorial sites and high-craft front-ends." },
+/* DiagnosticoPositivos */
+function DiagnosticoPositivos() {
+  const pontos = [
+    { n: "01", t: "Autoridade e Prova Social", d: "Bio comunica \"+R$130M em crédito\" e \"sem juros abusivos\" — diferencial forte e credibilidade imediata." },
+    { n: "02", t: "Conteúdo Educativo", d: "Posts como \"Pouca gente sabe disso\" e \"Um dos piores erros\" performam bem como criativos de anúncio." },
+    { n: "03", t: "Prova de Resultado Pessoal", d: "R$3M em vendas em 1 mês, Top 3 Regional, Top 10 Nacional e premiações geram autoridade para anúncios." },
+    { n: "04", t: "Presença em Eventos", d: "Feiras, corridas e lançamentos (Eurogarden Maringá, Parque Barigui) reforçam confiança e presença de mercado." },
+    { n: "05", t: "Username Descritivo", d: "@matheuscoelho.consorcio funciona como SEO orgânico dentro do Instagram." },
   ];
   return (
-    <section id="expertise" className="px-5 sm:px-8 md:px-12 py-24 md:py-40 max-w-[1600px] mx-auto">
-      <SectionLabel index="02" title="Expertise" />
+    <section id="diagnostico" className="px-5 sm:px-8 md:px-12 py-24 md:py-40 max-w-[1600px] mx-auto">
+      <SectionLabel index="01" title="Diagnóstico — Pontos Positivos" />
       <div className="mt-12 md:mt-20 border-t border-black/15">
-        {services.map((s, i) => (
+        {pontos.map((s, i) => (
           <FadeUp key={s.n} delay={i * 0.06} className="group border-b border-black/15">
             <div className="grid grid-cols-12 items-center gap-4 py-7 md:py-10 transition-colors">
-              <span className="col-span-2 md:col-span-1 text-xs sm:text-sm font-semibold tracking-widest" style={{ color: ACCENT }}>{s.n}</span>
-              <span className="col-span-8 md:col-span-5 font-semibold uppercase tracking-wide transition-transform duration-300 group-hover:translate-x-2" style={{ fontSize: "clamp(1.25rem, 3.5vw, 2.75rem)", lineHeight: 1 }}>{s.t}</span>
+              <span className="col-span-2 md:col-span-1 text-xs sm:text-sm font-semibold tracking-widest" style={{ color: "#16a34a" }}>{s.n}</span>
+              <span className="col-span-8 md:col-span-5 font-semibold uppercase tracking-wide" style={{ fontSize: "clamp(1rem, 2.5vw, 1.75rem)", lineHeight: 1.1 }}>{s.t}</span>
               <span className="hidden md:block md:col-span-5 text-xs lg:text-sm font-semibold tracking-widest uppercase text-black/55 text-right">{s.d}</span>
               <span className="col-span-2 md:col-span-1 flex justify-end">
-                <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 transition-all duration-300 text-black/30 group-hover:text-black group-hover:rotate-0 -rotate-45" strokeWidth={2} />
+                <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-black/20" strokeWidth={2} />
               </span>
             </div>
           </FadeUp>
@@ -398,42 +362,86 @@ function Expertise() {
   );
 }
 
-/* Work */
-function Work() {
-  const projects = [
-    { name: "Helios", cat: "Brand Identity", year: "2025", file: "helios-brand", ratio: "4 / 3" },
-    { name: "Northwind", cat: "Digital Product", year: "2025", file: "northwind-app", ratio: "4 / 3" },
-    { name: "Vanta", cat: "Motion & Film", year: "2024", file: "vanta-film", ratio: "4 / 3" },
-    { name: "Meridian", cat: "Web Development", year: "2024", file: "meridian-web", ratio: "4 / 3" },
+/* ProblemasIdentificados */
+function ProblemasIdentificados() {
+  const problemas = [
+    { n: "01", t: "Volume Crítico de Posts", d: "Apenas 13 posts — insuficiente para construir audiência qualificada. Algoritmo precisa de consistência." },
+    { n: "02", t: "Ausência de CTA", d: "Nenhum post direciona o usuário para ação: \"manda mensagem\", \"clique no link\", \"me chama no WhatsApp\"." },
+    { n: "03", t: "Sem Link na Bio", d: "Nenhum link de captura (WhatsApp, Linktree, landing page) — perda crítica de conversão com tráfego pago." },
+    { n: "04", t: "Engajamento Baixo", d: "758 seguidores com baixa ativação pelo algoritmo — curtidas e comentários escassos nos posts." },
+    { n: "05", t: "Linha Editorial Indefinida", d: "Posts pessoais, educativos e premiações se misturam sem cadência ou identidade visual consistente." },
+    { n: "06", t: "Thumbnails Sem Padrão", d: "Capas dos Reels sem identidade visual uniforme — prejudica a percepção de profissionalismo do feed." },
   ];
   return (
-    <section id="studios" className="px-5 sm:px-8 md:px-12 py-24 md:py-40 max-w-[1600px] mx-auto">
+    <section id="problemas" className="px-5 sm:px-8 md:px-12 py-24 md:py-40 max-w-[1600px] mx-auto">
+      <SectionLabel index="02" title="Problemas Identificados" />
+      <div className="mt-12 md:mt-20 border-t border-black/15">
+        {problemas.map((s, i) => (
+          <FadeUp key={s.n} delay={i * 0.06} className="group border-b border-black/15">
+            <div className="grid grid-cols-12 items-center gap-4 py-7 md:py-10 transition-colors">
+              <span className="col-span-2 md:col-span-1 text-xs sm:text-sm font-semibold tracking-widest" style={{ color: "#dc2626" }}>{s.n}</span>
+              <span className="col-span-8 md:col-span-5 font-semibold uppercase tracking-wide" style={{ fontSize: "clamp(1rem, 2.5vw, 1.75rem)", lineHeight: 1.1 }}>{s.t}</span>
+              <span className="hidden md:block md:col-span-5 text-xs lg:text-sm font-semibold tracking-widest uppercase text-black/55 text-right">{s.d}</span>
+              <span className="col-span-2 md:col-span-1 flex justify-end">
+                <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-black/20" strokeWidth={2} />
+              </span>
+            </div>
+          </FadeUp>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* PlanoDeGrowth */
+function PlanoDeGrowth() {
+  const fases = [
+    {
+      n: "01",
+      t: "Fase 1 — Estrutura",
+      tag: "Semana 1 · Pré-Lançamento",
+      items: ["Link na bio (wa.me direto ou landing page)", "Bio reescrita com hierarquia clara", "Instalação do Pixel Meta", "2-3 Reels educativos antes de ligar o tráfego"],
+    },
+    {
+      n: "02",
+      t: "Fase 2 — Campanhas",
+      tag: "Semana 2 · Ativação",
+      items: ["Campanha 1: Topo de Funil — Alcance/Visualização (público frio)", "Campanha 2: Meio de Funil — Leads/WhatsApp + Lookalike 1-3%", "Campanha 3: Fundo de Funil — Retargeting 75%+ visualizações"],
+    },
+    {
+      n: "03",
+      t: "Fase 3 — Escala",
+      tag: "Semanas 3–4 · Otimização",
+      items: ["Analisar CPL por criativo", "Pausar criativos com custo alto", "Escalar criativo vencedor", "Consolidar aprendizados para o mês 2"],
+    },
+  ];
+  return (
+    <section id="plano" className="px-5 sm:px-8 md:px-12 py-24 md:py-40 max-w-[1600px] mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
-        <SectionLabel index="03" title="Selected Work" />
+        <SectionLabel index="03" title="Plano de Growth — Meta Ads" />
         <FadeUp delay={0.1}>
-          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-black/55 sm:text-right max-w-xs">A glimpse of recent collaborations across brand, product and film.</p>
+          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-black/55 sm:text-right max-w-xs">Estrutura completa de campanhas para geração de leads qualificados.</p>
         </FadeUp>
       </div>
 
-      <div className="mt-12 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14 md:gap-y-20">
-        {projects.map((p, i) => (
-          <FadeUp key={p.name} delay={(i % 2) * 0.1} className="group cursor-pointer">
-            <a href="#contact" className="block">
-              <div className="overflow-hidden">
-                <ClipImage delay={(i % 2) * 0.1}>
-                  <div className="transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]">
-                    <Placeholder label={p.file + ".jpg"} ratio={p.ratio} />
-                  </div>
-                </ClipImage>
+      <div className="mt-12 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-14 md:gap-y-20">
+        {fases.map((f, i) => (
+          <FadeUp key={f.n} delay={i * 0.1} className="group cursor-default">
+            <div className="border border-black/10 p-6 md:p-8 h-full flex flex-col gap-5">
+              <div className="flex items-start justify-between gap-2">
+                <span className="text-xs font-semibold tracking-widest" style={{ color: ACCENT }}>{f.n}</span>
+                <span className="text-[10px] font-semibold tracking-widest uppercase text-black/40">{f.tag}</span>
               </div>
-              <div className="mt-5 flex items-start justify-between gap-4">
-                <div className="flex items-baseline gap-3">
-                  <span className="font-semibold uppercase tracking-wide" style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)" }}>{p.name}</span>
-                  <span className="text-[10px] sm:text-xs font-semibold tracking-widest uppercase text-black/50">{p.cat}</span>
-                </div>
-                <span className="text-xs sm:text-sm font-semibold tracking-widest" style={{ color: ACCENT }}>{p.year}</span>
-              </div>
-            </a>
+              <span className="font-semibold uppercase tracking-wide" style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)", lineHeight: 1.1 }}>{f.t}</span>
+              <ul className="flex flex-col gap-2 mt-auto">
+                {f.items.map((it, j) => (
+                  <li key={j} className="flex items-start gap-2 text-xs sm:text-sm font-semibold tracking-widest uppercase text-black/60">
+                    <span style={{ color: ACCENT }} className="shrink-0 mt-0.5">—</span>
+                    {it}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </FadeUp>
         ))}
       </div>
@@ -444,19 +452,19 @@ function Work() {
 /* StatsBand */
 function StatsBand() {
   const stats = [
-    { v: "300", l: "CRAFTED BRANDS" },
-    { v: "200", l: "DIGITAL PRODUCTS" },
-    { v: "100", l: "VENTURES FUNDED" },
-    { v: "15", l: "YEARS OF CRAFT" },
+    { v: "130", l: "MILHÕES EM CRÉDITO ADMINISTRADO" },
+    { v: "758", l: "SEGUIDORES NO INSTAGRAM" },
+    { v: "13", l: "POSTS PUBLICADOS ATÉ HOJE" },
+    { v: "3", l: "EMPRESAS REPRESENTADAS" },
   ];
   return (
     <section className="bg-black text-white">
       <div className="px-5 sm:px-8 md:px-12 py-20 md:py-32 max-w-[1600px] mx-auto">
-        <SectionLabel index="04" title="By The Numbers" light />
+        {/* StatsBand é interstitial — sem SectionLabel visível */}
         <div className="mt-12 md:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
           {stats.map((s, i) => (
             <FadeUp key={s.l} delay={i * 0.08} className="border-l border-white/20 pl-5 md:pl-8">
-              <div className="font-semibold leading-none" style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)" }}>
+              <div className="font-semibold leading-none text-white" style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)" }}>
                 <span style={{ color: ACCENT, fontSize: "0.5em" }}>+</span>
                 <CountUp to={Number(s.v)} />
               </div>
@@ -469,27 +477,77 @@ function StatsBand() {
   );
 }
 
-/* Feedback */
-function Feedback() {
+/* CriativosRecomendados */
+function CriativosRecomendados() {
+  const criativos = [
+    {
+      letra: "A",
+      t: "Dor + Solução",
+      formato: "Reel 9:16 · 15-30s · Público Frio",
+      roteiro: "Você sabe quanto está pagando de juros no financiamento? O consórcio pode quitar isso e ainda te dar crédito para um novo imóvel, sem pagar um centavo de juros.",
+    },
+    {
+      letra: "B",
+      t: "Prova Social",
+      formato: "Carrossel ou Imagem · Público Morno",
+      roteiro: "R$3 Milhões em vendas em 1 mês — posso te ajudar a conquistar o seu imóvel também. Print de resultado + badge de premiação.",
+    },
+    {
+      letra: "C",
+      t: "Educativo com CTA",
+      formato: "Reel com Legenda · Retargeting",
+      roteiro: "Baseado nos vídeos existentes: Pouca gente sabe disso — adicionar CTA explícito: Quer simular? Link na bio ou me chama no WhatsApp.",
+    },
+  ];
   return (
-    <section id="feedback" className="px-5 sm:px-8 md:px-12 py-24 md:py-40 max-w-[1500px] mx-auto">
-      <SectionLabel index="05" title="Feedback" />
-      <div className="mt-10 md:mt-16 flex gap-4 md:gap-8">
-        <span className="font-semibold leading-none shrink-0" style={{ color: ACCENT, fontSize: "clamp(3rem, 9vw, 9rem)", lineHeight: 0.7 }}>“</span>
-        <ClipReveal
-          lines={["They turned our", "vision into something", "the whole industry", "now tries to copy."]}
-          className="font-semibold uppercase text-black"
-          style={{ fontSize: "clamp(1.5rem, 5vw, 4.5rem)", lineHeight: 1 }}
-          stagger={0.1}
-        />
+    <section id="criativos" className="px-5 sm:px-8 md:px-12 py-24 md:py-40 max-w-[1500px] mx-auto">
+      <SectionLabel index="04" title="Criativos Recomendados" />
+      <div className="mt-12 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {criativos.map((c, i) => (
+          <FadeUp key={c.letra} delay={i * 0.1}>
+            <div className="border border-black/10 p-6 md:p-8 flex flex-col gap-4 h-full">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0" style={{ backgroundColor: ACCENT }}>{c.letra}</span>
+                <span className="text-xs font-semibold tracking-widest uppercase text-black/50">{c.formato}</span>
+              </div>
+              <span className="font-semibold uppercase tracking-wide" style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)", lineHeight: 1.1 }}>{c.t}</span>
+              <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-black/60 leading-relaxed mt-auto">{c.roteiro}</p>
+            </div>
+          </FadeUp>
+        ))}
       </div>
-      <FadeUp className="mt-10 md:mt-14 md:pl-20 flex items-center gap-4" delay={0.1}>
-        <div className="w-12 h-12 rounded-full ph-stripes shrink-0" />
-        <div>
-          <div className="text-sm font-semibold tracking-widest uppercase">Dana Reyes</div>
-          <div className="text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-black/50">Founder — Northwind</div>
-        </div>
-      </FadeUp>
+    </section>
+  );
+}
+
+/* Cronograma */
+function Cronograma() {
+  const semanas = [
+    { n: "01", t: "Semana 1", items: ["Ajustar bio com hierarquia clara", "Criar link WhatsApp / landing page", "Instalar Pixel Meta", "Produzir 2 novos Reels educativos"] },
+    { n: "02", t: "Semana 2", items: ["Subir Campanha 2 (Leads) com 3 criativos", "Teste A/B — todo budget na campanha de leads", "Monitorar CPL e ajustar audiências"] },
+    { n: "03", t: "Semana 3", items: ["Analisar resultados da Semana 2", "Pausar criativos com CPL alto", "Escalar criativo vencedor", "Ativar Campanha 1 (Topo de Funil)"] },
+    { n: "04", t: "Semana 4", items: ["Ativar Campanha 3 (Retargeting)", "Consolidar aprendizados", "Planejar estratégia do Mês 2"] },
+  ];
+  return (
+    <section id="cronograma" className="px-5 sm:px-8 md:px-12 py-24 md:py-40 max-w-[1600px] mx-auto">
+      <SectionLabel index="05" title="Cronograma de Execução" />
+      <div className="mt-12 md:mt-20 border-t border-black/15">
+        {semanas.map((s, i) => (
+          <FadeUp key={s.n} delay={i * 0.07} className="border-b border-black/15">
+            <div className="grid grid-cols-12 items-start gap-4 py-7 md:py-10">
+              <span className="col-span-2 md:col-span-1 text-xs sm:text-sm font-semibold tracking-widest" style={{ color: ACCENT }}>{s.n}</span>
+              <span className="col-span-10 md:col-span-2 font-semibold uppercase tracking-wide" style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)", lineHeight: 1 }}>{s.t}</span>
+              <div className="col-span-12 md:col-span-9 flex flex-wrap gap-2 md:gap-3">
+                {s.items.map((it, j) => (
+                  <span key={j} className="inline-flex items-center px-3 py-1.5 border border-black/15 text-[10px] sm:text-xs font-semibold tracking-widest uppercase text-black/60">
+                    {it}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </FadeUp>
+        ))}
+      </div>
     </section>
   );
 }
@@ -497,26 +555,27 @@ function Feedback() {
 /* CTA */
 function CTA() {
   return (
-    <section id="contact" className="px-5 sm:px-8 md:px-12 pt-10 pb-24 md:pb-40 max-w-[1600px] mx-auto">
+    <section id="contato" className="px-5 sm:px-8 md:px-12 pt-10 pb-24 md:pb-40 max-w-[1600px] mx-auto">
       <div className="border-t border-black/15 pt-16 md:pt-28">
-        <FadeUp className="text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-black/55">(Let's Work)</FadeUp>
+        <FadeUp className="text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-black/55">(Vamos Começar)</FadeUp>
         <div className="mt-8 md:mt-12">
           <ClipReveal
-            lines={["Let's Build", "Something", "Fearless"]}
+            lines={["Pronto Para", "Crescer?"]}
             className="font-semibold uppercase text-black"
             style={{ fontSize: "clamp(2.5rem, 12vw, 12rem)", lineHeight: 0.86 }}
             stagger={0.12}
           />
         </div>
-        <div className="mt-12 md:mt-16 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
+        <FadeUp delay={0.08} className="mt-6 md:mt-8 max-w-xl">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-black/55 leading-relaxed">
+            Vamos ativar sua presença e gerar leads qualificados para o seu consórcio. Proposta válida para início imediato — Junho 2026.
+          </p>
+        </FadeUp>
+        <div className="mt-12 md:mt-16">
           <FadeUp delay={0.1}>
-            <a href="mailto:hello@fervor.studio" className="flex items-center gap-2 font-semibold uppercase tracking-wide hover:opacity-70 transition-opacity" style={{ color: ACCENT, fontSize: "clamp(1.25rem, 3vw, 2.25rem)" }}>
-              hello@fervor.studio
-              <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8" strokeWidth={2.5} />
+            <a href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold uppercase tracking-wide hover:opacity-70 transition-opacity" style={{ color: ACCENT, fontSize: "clamp(1.25rem, 3vw, 2.25rem)" }}>
+              <ArrowUpRight className="w-[72px] h-[72px] md:w-24 md:h-24" strokeWidth={2} />
             </a>
-          </FadeUp>
-          <FadeUp delay={0.18} className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-black/55 sm:text-right max-w-xs">
-            Currently booking projects for Q3 — Q4 2026. Tell us what you're building.
           </FadeUp>
         </div>
       </div>
@@ -526,48 +585,21 @@ function CTA() {
 
 /* Footer */
 function Footer() {
-  const cols = [
-    { h: "Menu", items: ["Story", "Expertise", "Studios", "Feedback"] },
-    { h: "Social", items: ["Instagram", "LinkedIn", "Behance", "Twitter / X"] },
-    { h: "Studio", items: ["Brooklyn, NY", "Lisbon, PT", "+1 (212) 555 0148", "hello@fervor.studio"] },
-  ];
   return (
     <footer className="bg-black text-white">
       <div className="px-5 sm:px-8 md:px-12 pt-20 md:pt-28 pb-10 max-w-[1600px] mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
-          <FadeUp className="col-span-2 md:col-span-1 flex items-start">
-            <div className="flex items-center gap-3">
-              <Logo />
-              <span className="text-base font-semibold tracking-widest uppercase">Fervor</span>
-            </div>
-          </FadeUp>
-          {cols.map((c, i) => (
-            <FadeUp key={c.h} delay={0.08 + i * 0.08}>
-              <div className="text-[11px] font-semibold tracking-widest uppercase text-white/40">{c.h}</div>
-              <ul className="mt-5 flex flex-col gap-3">
-                {c.items.map((it) => (
-                  <li key={it}>
-                    <a href="#" className="text-xs sm:text-sm font-semibold tracking-widest uppercase hover:opacity-60 transition-opacity">{it}</a>
-                  </li>
-                ))}
-              </ul>
-            </FadeUp>
-          ))}
-        </div>
-
-        <div className="mt-20 md:mt-28">
+        <div className="mt-0">
           <ClipReveal
-            lines={[<Fragment key="wm">Fervor<span style={{ color: ACCENT }}>.</span></Fragment>]}
+            lines={[<Fragment key="wm">Consórcio<span style={{ color: ACCENT }}>.</span></Fragment>]}
             className="font-semibold uppercase leading-none text-white/95 select-none"
-            style={{ fontSize: "clamp(3.5rem, 18vw, 18rem)", letterSpacing: "-0.02em" }}
+            style={{ fontSize: "clamp(4rem, 18vw, 18rem)", letterSpacing: "-0.02em" }}
           />
         </div>
 
         <FadeUp as="div" className="mt-10 pt-8 border-t border-white/15 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[11px] font-semibold tracking-widest uppercase text-white/50">
-          <span>© 2026 Fervor Studio</span>
-          <span className="hidden sm:inline">Fearless Vision Delivered</span>
+          <span>Matheus Coelho Consórcio — Curitiba, PR</span>
           <a href="#top" className="inline-flex items-center gap-1.5 hover:text-white transition-colors">
-            Back To Top
+            Voltar ao Topo
             <ArrowDown className="w-3.5 h-3.5 rotate-180" strokeWidth={2.5} />
           </a>
         </FadeUp>
@@ -582,11 +614,12 @@ function App() {
       <Nav />
       <Hero />
       <Marquee />
-      <Story />
-      <Expertise />
-      <Work />
+      <DiagnosticoPositivos />
+      <ProblemasIdentificados />
       <StatsBand />
-      <Feedback />
+      <PlanoDeGrowth />
+      <CriativosRecomendados />
+      <Cronograma />
       <CTA />
       <Footer />
     </div>
