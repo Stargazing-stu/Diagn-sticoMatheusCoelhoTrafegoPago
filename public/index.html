@@ -91,8 +91,8 @@
     }
     .hero-stat-n { font-size: clamp(1.4rem, 2.6vw, 2.4rem); font-weight: 700; line-height: 1; }
     .hero-stat-l { font-size: 9px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; opacity: .45; margin-top: 4px; }
-    /* Título: min menor para não transbordar no mobile */
-    .hero-title { font-size: clamp(2.2rem, 9vw, 13rem); font-weight: 600; text-transform: uppercase; line-height: .9; letter-spacing: -.02em; }
+    /* Título: min menor para não transbordar no mobile; padding reserva espaço dos stats */
+    .hero-title { font-size: clamp(2.2rem, 9vw, 13rem); font-weight: 600; text-transform: uppercase; line-height: .9; letter-spacing: -.02em; padding-right: clamp(160px, 22vw, 320px); }
     .hero-sub { margin-top: clamp(16px, 2.5vw, 36px); font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; opacity: .55; max-width: 320px; line-height: 1.75; }
     .hero-btn { margin-top: 24px; display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: #fff; text-decoration: none; opacity: .65; transition: opacity .2s; }
     .hero-btn:hover { opacity: 1; }
@@ -107,7 +107,7 @@
         margin-bottom: 36px;
       }
       .hero-stat-n { font-size: 1.7rem; }
-      .hero-title { font-size: clamp(2rem, 11.5vw, 5rem); line-height: .92; }
+      .hero-title { font-size: clamp(2rem, 11.5vw, 5rem); line-height: .92; padding-right: 0; }
       .hero-sub { max-width: 100%; }
     }
 
