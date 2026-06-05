@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matheus Coelho — Consórcio Imobiliário</title>
+  <meta name="description" content="Proposta de Growth com Meta Ads para Matheus Coelho Consórcio — Curitiba, PR." />
+  <meta property="og:title" content="Matheus Coelho — Consórcio Imobiliário" />
+  <meta property="og:description" content="Proposta de Growth com Meta Ads — Curitiba, PR." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --accent: #1A56DB; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #fff; color: #000; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    section { scroll-margin-top: 96px; }
+    * { -webkit-tap-highlight-color: transparent; }
+
+    .wrap { padding-left: clamp(20px, 5vw, 48px); padding-right: clamp(20px, 5vw, 48px); max-width: 1600px; margin: 0 auto; }
+    .sec { padding-top: clamp(64px, 10vw, 160px); padding-bottom: clamp(64px, 10vw, 160px); }
+
+    /* ── Animations ─────────────────────────────────────── */
+    .fu { opacity: 0; transform: translateY(32px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+    .fu.vis { opacity: 1; transform: none; }
+    .fu.d1 { transition-delay: .08s; } .fu.d2 { transition-delay: .16s; }
+    .fu.d3 { transition-delay: .24s; } .fu.d4 { transition-delay: .32s; }
+    .fu.d5 { transition-delay: .40s; } .fu.d6 { transition-delay: .48s; }
+
+    .clip-wrap { overflow: hidden; display: block; }
+    .clip-inner { display: block; transform: translateY(110%); transition: transform .9s cubic-bezier(.22,1,.36,1); }
+    .clip-inner.vis { transform: none; }
+    .clip-inner.d1 { transition-delay: .12s; }
+    .clip-inner.d2 { transition-delay: .24s; }
+
+    /* ── Nav ────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px clamp(20px, 5vw, 48px);
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background .3s, backdrop-filter .3s, border-color .3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled { background: rgba(255,255,255,.88); backdrop-filter: blur(14px); border-bottom-color: rgba(0,0,0,.08); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .nav-logo-ring { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid currentColor; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-ring span { font-size: 9px; font-weight: 700; letter-spacing: .04em; color: var(--accent); }
+    .nav-brand { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: inherit; opacity: .55; transition: opacity .2s; }
+    .nav-links a:hover { opacity: 1; }
+    .nav-cta { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: #fff; background: var(--accent); padding: 10px 20px; transition: opacity .2s; }
+    .nav-cta:hover { opacity: .85; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: #000; border-radius: 2px; transition: all .3s; }
+    @media (max-width: 768px) { .nav-links, .nav-cta { display: none; } .nav-hamburger { display: flex; } }
+
+    /* Mobile overlay */
+    .mob-overlay { display: none; position: fixed; inset: 0; background: #fff; z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+    .mob-overlay.open { display: flex; }
+    .mob-overlay a { font-size: clamp(22px, 6vw, 32px); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: #000; }
+    .mob-overlay a.accent-link { color: var(--accent); }
+    .mob-close { position: absolute; top: 24px; right: clamp(20px, 5vw, 48px); background: none; border: none; cursor: pointer; font-size: 28px; line-height: 1; color: #000; }
+
+    /* ── Hero ───────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a1a 0%, #000 100%);
+      color: #fff; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding-top: 120px; padding-bottom: clamp(48px, 8vw, 96px);
+    }
+    .hero-stats { position: absolute; top: 120px; right: clamp(20px, 5vw, 48px); display: flex; flex-direction: column; gap: 24px; text-align: right; }
+    .hero-stat-n { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 700; line-height: 1; }
+    .hero-stat-l { font-size: 9px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; opacity: .45; margin-top: 4px; }
+    .hero-title { font-size: clamp(3.5rem, 12vw, 13rem); font-weight: 600; text-transform: uppercase; line-height: .86; letter-spacing: -.02em; }
+    .hero-sub { margin-top: clamp(20px, 3vw, 40px); font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; opacity: .55; max-width: 300px; line-height: 1.7; }
+    .hero-btn { margin-top: 28px; display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: #fff; text-decoration: none; opacity: .65; transition: opacity .2s; }
+    .hero-btn:hover { opacity: 1; }
+
+    /* ── Marquee ────────────────────────────────────────── */
+    .marquee-bar { border-top: 1px solid rgba(0,0,0,.1); border-bottom: 1px solid rgba(0,0,0,.1); padding: 18px 0; overflow: hidden; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+    .m-item { font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; opacity: .4; white-space: nowrap; padding: 0 24px; }
+    .m-dot { opacity: .2; padding: 0 8px; }
+
+    /* ── Section Label ──────────────────────────────────── */
+    .slabel { display: flex; align-items: center; gap: 20px; margin-bottom: clamp(32px, 5vw, 64px); }
+    .slabel-n { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+    .slabel-bar { width: 36px; height: 1px; background: rgba(0,0,0,.2); }
+    .slabel-t { font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; opacity: .45; }
+
+    /* ── List (diagnóstico / problemas) ─────────────────── */
+    .list-wrap { border-top: 1px solid rgba(0,0,0,.12); }
+    .list-row { display: grid; grid-template-columns: 52px 1fr; gap: clamp(16px, 3vw, 40px); padding: clamp(24px, 3vw, 40px) 0; border-bottom: 1px solid rgba(0,0,0,.1); align-items: start; }
+    .list-num { font-size: clamp(.75rem, 1.5vw, 1.1rem); font-weight: 700; letter-spacing: .06em; padding-top: 3px; }
+    .list-num.g { color: #16a34a; } .list-num.r { color: #dc2626; } .list-num.b { color: var(--accent); }
+    .list-ttl { font-size: clamp(1rem, 2.5vw, 1.5rem); font-weight: 600; text-transform: uppercase; line-height: 1.05; letter-spacing: -.01em; }
+    .list-dsc { font-size: clamp(11px, 1.2vw, 13px); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(0,0,0,.5); margin-top: 8px; line-height: 1.65; }
+
+    /* ── Stats Band ─────────────────────────────────────── */
+    #statsband { background: #000; color: #fff; padding: clamp(64px, 8vw, 96px) 0; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 32px; }
+    @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+    .stat-n { font-size: clamp(2.5rem, 7vw, 6rem); font-weight: 700; line-height: 1; color: var(--accent); }
+    .stat-l { font-size: 9px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 8px; }
+
+    /* ── Cards ──────────────────────────────────────────── */
+    .cards { display: grid; gap: 16px; margin-top: clamp(32px, 4vw, 64px); }
+    .cards-2 { } .cards-3 { }
+    @media (min-width: 640px) { .cards-2 { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 640px) { .cards-3 { grid-template-columns: repeat(3, 1fr); } }
+    .card { border: 1px solid rgba(0,0,0,.1); padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 14px; }
+    .card-tag { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; align-self: flex-start; }
+    .card-ttl { font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 600; text-transform: uppercase; line-height: 1.05; }
+    .card-dsc { font-size: 12px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: rgba(0,0,0,.5); line-height: 1.75; margin-top: auto; }
+    .card-head { display: flex; align-items: center; gap: 12px; }
+    .card-ball { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .card-fmt { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(0,0,0,.4); }
+
+    /* ── Cronograma ─────────────────────────────────────── */
+    .crono-row { display: grid; grid-template-columns: 44px auto 1fr; gap: clamp(12px, 2vw, 28px); padding: clamp(24px, 3vw, 40px) 0; border-bottom: 1px solid rgba(0,0,0,.1); align-items: start; }
+    @media (max-width: 560px) { .crono-row { grid-template-columns: 40px 1fr; } .crono-tags { grid-column: 1 / -1; } }
+    .crono-num { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--accent); padding-top: 2px; }
+    .crono-week { font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 600; text-transform: uppercase; white-space: nowrap; }
+    .crono-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ctag { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(0,0,0,.5); border: 1px solid rgba(0,0,0,.12); padding: 6px 12px; }
+
+    /* ── CTA ────────────────────────────────────────────── */
+    .cta-eye { font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: rgba(0,0,0,.5); }
+    .cta-title { font-size: clamp(2.5rem, 12vw, 12rem); font-weight: 600; text-transform: uppercase; line-height: .86; letter-spacing: -.01em; margin-top: clamp(24px, 3vw, 48px); }
+    .cta-sub { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(0,0,0,.5); line-height: 1.75; max-width: 480px; margin-top: clamp(16px, 2vw, 32px); }
+    .cta-arrow { display: inline-flex; margin-top: clamp(32px, 4vw, 64px); color: var(--accent); text-decoration: none; transition: opacity .2s; }
+    .cta-arrow:hover { opacity: .7; }
+    .cta-arrow svg { width: 72px; height: 72px; }
+    @media (min-width: 768px) { .cta-arrow svg { width: 96px; height: 96px; } }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    footer { background: #000; color: #fff; }
+    .footer-inner { padding-top: clamp(64px, 8vw, 112px); padding-bottom: 40px; }
+    .footer-wm { font-size: clamp(4rem, 18vw, 18rem); font-weight: 600; text-transform: uppercase; line-height: .9; letter-spacing: -.02em; color: rgba(255,255,255,.95); overflow: hidden; }
+    .footer-wm .a { color: var(--accent); }
+    .footer-bot { border-top: 1px solid rgba(255,255,255,.12); padding-top: 32px; margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .footer-copy { font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+    .footer-back { font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.4); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color .2s; }
+    .footer-back:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-ring"><span>MC</span></div>
+    <span class="nav-brand">Matheus Coelho</span>
+  </a>
+  <div class="nav-links">
+    <a href="#diagnostico">Diagnóstico</a>
+    <a href="#plano">Plano</a>
+    <a href="#criativos">Criativos</a>
+    <a href="#cronograma">Cronograma</a>
+  </div>
+  <a href="#contato" class="nav-cta">Vamos Conversar</a>
+  <button class="nav-hamburger" id="navBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mobMenu">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#diagnostico" class="mob-link">Diagnóstico</a>
+  <a href="#plano" class="mob-link">Plano</a>
+  <a href="#criativos" class="mob-link">Criativos</a>
+  <a href="#cronograma" class="mob-link">Cronograma</a>
+  <a href="#contato" class="accent-link mob-link">Vamos Conversar</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-stats fu vis">
+      <div>
+        <div class="hero-stat-n">+130<span style="color:var(--accent)">M</span></div>
+        <div class="hero-stat-l">Milhões em Crédito</div>
+      </div>
+      <div>
+        <div class="hero-stat-n">3</div>
+        <div class="hero-stat-l">Campanhas Planejadas</div>
+      </div>
+      <div>
+        <div class="hero-stat-n">4</div>
+        <div class="hero-stat-l">Semanas Execução</div>
+      </div>
+    </div>
+    <div class="hero-title" id="heroT">
+      <div class="clip-wrap"><span class="clip-inner">Especialista em</span></div>
+      <div class="clip-wrap"><span class="clip-inner d1">Consórcio</span></div>
+      <div class="clip-wrap"><span class="clip-inner d2">Imobiliário</span></div>
+    </div>
+    <p class="hero-sub fu" style="transition-delay:.3s">Sem Juros. Sem Enrolação.<br>Com Estratégia.</p>
+    <a href="#diagnostico" class="hero-btn fu" style="transition-delay:.42s">
+      Ver Proposta
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track" id="mtrack"></div>
+</div>
+
+<!-- DIAGNÓSTICO POSITIVOS -->
+<section id="diagnostico">
+  <div class="wrap sec">
+    <div class="slabel fu">
+      <span class="slabel-n">01</span>
+      <span class="slabel-bar"></span>
+      <span class="slabel-t">Diagnóstico — Pontos Positivos</span>
+    </div>
+    <div class="list-wrap">
+      <div class="list-row fu d1">
+        <span class="list-num g">01</span>
+        <div>
+          <div class="list-ttl">Autoridade e Prova Social</div>
+          <div class="list-dsc">Bio comunica "+R$130M em crédito administrado" e "sem juros abusivos" — diferencial forte e credibilidade imediata para novos visitantes.</div>
+        </div>
+      </div>
+      <div class="list-row fu d2">
+        <span class="list-num g">02</span>
+        <div>
+          <div class="list-ttl">Conteúdo Educativo Presente</div>
+          <div class="list-dsc">Posts "Pouca gente sabe disso" e "Um dos piores erros" já funcionam como criativos de anúncio de alto potencial — ativos prontos para uso.</div>
+        </div>
+      </div>
+      <div class="list-row fu d3">
+        <span class="list-num g">03</span>
+        <div>
+          <div class="list-ttl">Prova de Resultado Pessoal</div>
+          <div class="list-dsc">R$3M em 1 mês, Top 3 Regional, Top 10 Nacional, premiações — material excelente para anúncios de prova social e retargeting.</div>
+        </div>
+      </div>
+      <div class="list-row fu d4">
+        <span class="list-num g">04</span>
+        <div>
+          <div class="list-ttl">Presença em Eventos</div>
+          <div class="list-dsc">Participação em eventos corporativos, corridas e lançamentos (Eurogarden Maringá, Parque Barigui) reforça confiança e gera conteúdo espontâneo.</div>
+        </div>
+      </div>
+      <div class="list-row fu d5">
+        <span class="list-num g">05</span>
+        <div>
+          <div class="list-ttl">Username Descritivo</div>
+          <div class="list-dsc">@matheuscoelho.consorcio funciona como SEO orgânico dentro do Instagram — aumenta descoberta sem custo adicional de tráfego.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMAS IDENTIFICADOS -->
+<section id="problemas">
+  <div class="wrap" style="padding-bottom: clamp(64px,10vw,160px);">
+    <div class="slabel fu">
+      <span class="slabel-n">02</span>
+      <span class="slabel-bar"></span>
+      <span class="slabel-t">Problemas Identificados</span>
+    </div>
+    <div class="list-wrap">
+      <div class="list-row fu d1">
+        <span class="list-num r">01</span>
+        <div>
+          <div class="list-ttl">Volume Crítico</div>
+          <div class="list-dsc">Apenas 13 posts — insuficiente para construir audiência qualificada. O algoritmo precisa de consistência mínima para distribuir o conteúdo.</div>
+        </div>
+      </div>
+      <div class="list-row fu d2">
+        <span class="list-num r">02</span>
+        <div>
+          <div class="list-ttl">Ausência de CTA</div>
+          <div class="list-dsc">Nenhum post direciona para ação: WhatsApp, link da bio, mensagem. Engajamento gerado é desperdiçado sem conversão.</div>
+        </div>
+      </div>
+      <div class="list-row fu d3">
+        <span class="list-num r">03</span>
+        <div>
+          <div class="list-ttl">Sem Link na Bio</div>
+          <div class="list-dsc">Perda crítica de conversão antes mesmo do tráfego pago ser ativado — sem link de captura, cada visitante vai embora sem contato.</div>
+        </div>
+      </div>
+      <div class="list-row fu d4">
+        <span class="list-num r">04</span>
+        <div>
+          <div class="list-ttl">Engajamento Baixo</div>
+          <div class="list-dsc">758 seguidores não estão sendo ativados pelo algoritmo de forma eficiente — poucos comentários e curtidas indicam baixa relevância.</div>
+        </div>
+      </div>
+      <div class="list-row fu d5">
+        <span class="list-num r">05</span>
+        <div>
+          <div class="list-ttl">Linha Editorial Indefinida</div>
+          <div class="list-dsc">Feed alterna entre posts pessoais, educativo e premiações sem sequência planejada — falta identidade visual e cadência estratégica.</div>
+        </div>
+      </div>
+      <div class="list-row fu d6">
+        <span class="list-num r">06</span>
+        <div>
+          <div class="list-ttl">Thumbnails Sem Padrão</div>
+          <div class="list-dsc">Capas dos Reels sem identidade visual uniforme — prejudica percepção de profissionalismo e coesão do perfil.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section id="statsband">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="fu">
+        <div class="stat-n" data-count="130">0</div>
+        <div class="stat-l">Milhões em Crédito Administrado</div>
+      </div>
+      <div class="fu d1">
+        <div class="stat-n" data-count="758">0</div>
+        <div class="stat-l">Seguidores no Instagram</div>
+      </div>
+      <div class="fu d2">
+        <div class="stat-n" data-count="13">0</div>
+        <div class="stat-l">Posts Publicados Até Hoje</div>
+      </div>
+      <div class="fu d3">
+        <div class="stat-n" data-count="3">0</div>
+        <div class="stat-l">Empresas Representadas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANO DE GROWTH -->
+<section id="plano">
+  <div class="wrap sec">
+    <div class="slabel fu">
+      <span class="slabel-n">03</span>
+      <span class="slabel-bar"></span>
+      <span class="slabel-t">Plano de Growth — Meta Ads</span>
+    </div>
+    <p class="fu" style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.45);max-width:440px;line-height:1.75;margin-top:-24px">
+      Estrutura completa de campanhas para geração de leads qualificados.
+    </p>
+    <div class="cards cards-2" style="margin-top:clamp(32px,4vw,64px)">
+      <div class="card fu d1">
+        <div class="card-tag">Semana 1 — Pré-lançamento</div>
+        <div class="card-ttl">Fase 1 — Estrutura</div>
+        <div class="card-dsc">Link na bio (WhatsApp direto) · Reescrever bio com hierarquia clara · Instalar Pixel Meta · Criar 2–3 Reels educativos antes de ativar os anúncios.</div>
+      </div>
+      <div class="card fu d2">
+        <div class="card-tag">Semana 2 — Ativação</div>
+        <div class="card-ttl">Fase 2 — Campanhas</div>
+        <div class="card-dsc">Campanha 1: Topo de Funil (Awareness/Reels) · Campanha 2: Leads via WhatsApp + Lookalike · Campanha 3: Retargeting para quem assistiu 75%+.</div>
+      </div>
+      <div class="card fu d3">
+        <div class="card-tag">Semanas 3–4 — Otimização</div>
+        <div class="card-ttl">Fase 3 — Escala</div>
+        <div class="card-dsc">Analisar CPL · Pausar criativos com alto custo · Escalar criativo vencedor · Consolidar aprendizados para a estratégia do Mês 2.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRIATIVOS RECOMENDADOS -->
+<section id="criativos">
+  <div class="wrap" style="padding-bottom:clamp(64px,10vw,160px)">
+    <div class="slabel fu">
+      <span class="slabel-n">04</span>
+      <span class="slabel-bar"></span>
+      <span class="slabel-t">Criativos Recomendados</span>
+    </div>
+    <div class="cards cards-3">
+      <div class="card fu d1">
+        <div class="card-head">
+          <div class="card-ball">A</div>
+          <div class="card-fmt">Reel Vertical 9:16 · 15–30s</div>
+        </div>
+        <div class="card-ttl">Dor + Solução</div>
+        <div class="card-dsc">"Você sabe quanto você está pagando de juros no seu financiamento? O consórcio pode quitar isso e ainda te dar crédito pra um novo imóvel, sem pagar um centavo de juros."</div>
+      </div>
+      <div class="card fu d2">
+        <div class="card-head">
+          <div class="card-ball">B</div>
+          <div class="card-fmt">Carrossel ou Imagem Estática</div>
+        </div>
+        <div class="card-ttl">Prova Social</div>
+        <div class="card-dsc">Print/resultado + badge de premiação: "R$3 Milhões em vendas em 1 mês — posso te ajudar a conquistar o seu imóvel também."</div>
+      </div>
+      <div class="card fu d3">
+        <div class="card-head">
+          <div class="card-ball">C</div>
+          <div class="card-fmt">Reel com Legenda na Tela</div>
+        </div>
+        <div class="card-ttl">Educativo com CTA</div>
+        <div class="card-dsc">Baseado nos vídeos "Pouca gente sabe disso" — adicionar CTA: "Quer simular? Link na bio ou me chama no WhatsApp."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRONOGRAMA -->
+<section id="cronograma">
+  <div class="wrap sec">
+    <div class="slabel fu">
+      <span class="slabel-n">05</span>
+      <span class="slabel-bar"></span>
+      <span class="slabel-t">Cronograma de Execução</span>
+    </div>
+    <div class="list-wrap">
+      <div class="crono-row fu d1">
+        <span class="crono-num">01</span>
+        <span class="crono-week">Semana 1</span>
+        <div class="crono-tags">
+          <span class="ctag">Ajustar Bio</span>
+          <span class="ctag">Link WhatsApp</span>
+          <span class="ctag">Instalar Pixel Meta</span>
+          <span class="ctag">2 Novos Reels Educativos</span>
+        </div>
+      </div>
+      <div class="crono-row fu d2">
+        <span class="crono-num">02</span>
+        <span class="crono-week">Semana 2</span>
+        <div class="crono-tags">
+          <span class="ctag">Campanha 2 (Leads)</span>
+          <span class="ctag">3 Criativos para Teste</span>
+          <span class="ctag">Teste A/B</span>
+          <span class="ctag">Budget Total em Leads</span>
+        </div>
+      </div>
+      <div class="crono-row fu d3">
+        <span class="crono-num">03</span>
+        <span class="crono-week">Semana 3</span>
+        <div class="crono-tags">
+          <span class="ctag">Analisar CPL</span>
+          <span class="ctag">Pausar Alto Custo</span>
+          <span class="ctag">Escalar Vencedor</span>
+          <span class="ctag">Ativar Campanha 1</span>
+        </div>
+      </div>
+      <div class="crono-row fu d4">
+        <span class="crono-num">04</span>
+        <span class="crono-week">Semana 4</span>
+        <div class="crono-tags">
+          <span class="ctag">Retargeting (Campanha 3)</span>
+          <span class="ctag">Consolidar Aprendizados</span>
+          <span class="ctag">Planejar Mês 2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contato">
+  <div class="wrap" style="padding-bottom:clamp(64px,10vw,160px)">
+    <div style="border-top:1px solid rgba(0,0,0,.12);padding-top:clamp(48px,6vw,112px)">
+      <div class="cta-eye fu">(Vamos Começar)</div>
+      <div class="cta-title" id="ctaT">
+        <div class="clip-wrap"><span class="clip-inner">Pronto Para</span></div>
+        <div class="clip-wrap"><span class="clip-inner d1">Crescer?</span></div>
+      </div>
+      <p class="cta-sub fu">Vamos ativar sua presença e gerar leads qualificados para o seu consórcio. Proposta válida para início imediato — Junho 2026.</p>
+      <a href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="cta-arrow fu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"/>
+          <polyline points="7 7 17 7 17 17"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-wm fu">Consórcio<span class="a">.</span></div>
+    <div class="footer-bot fu">
+      <span class="footer-copy">Matheus Coelho Consórcio — Curitiba, PR</span>
+      <a href="#" class="footer-back">
+        Voltar ao Topo
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg)">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <polyline points="19 12 12 19 5 12"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Marquee ──────────────────────────────────────────────
+  const words = ['Consórcio Imobiliário','Meta Ads','Geração de Leads','Tráfego Pago','Instagram Growth','Curitiba, PR','Sem Juros'];
+  const track = document.getElementById('mtrack');
+  const full = [...words, ...words];
+  track.innerHTML = full.map(w => `<span class="m-item">${w}</span><span class="m-dot">•</span>`).join('');
+
+  // ── Nav scroll ───────────────────────────────────────────
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+
+  // ── Mobile menu ──────────────────────────────────────────
+  const menu = document.getElementById('mobMenu');
+  document.getElementById('navBtn').addEventListener('click', () => menu.classList.add('open'));
+  document.getElementById('mobClose').addEventListener('click', () => menu.classList.remove('open'));
+  document.querySelectorAll('.mob-link').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // ── IntersectionObserver: fade-up ────────────────────────
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fu').forEach(el => io.observe(el));
+
+  // ── Clip reveal ──────────────────────────────────────────
+  function triggerClip(el) {
+    el.querySelectorAll('.clip-inner').forEach(ci => ci.classList.add('vis'));
+  }
+  const clipIO = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { triggerClip(e.target); clipIO.unobserve(e.target); } });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('#heroT, #ctaT').forEach(el => clipIO.observe(el));
+  setTimeout(() => triggerClip(document.getElementById('heroT')), 150);
+
+  // ── CountUp ──────────────────────────────────────────────
+  function countUp(el, target) {
+    const t0 = performance.now();
+    const dur = 1400;
+    (function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(ease * target).toLocaleString('pt-BR');
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+  const cntIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { countUp(e.target, +e.target.dataset.count); cntIO.unobserve(e.target); }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-count]').forEach(el => cntIO.observe(el));
+</script>
+</body>
+</html>
